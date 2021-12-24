@@ -1,0 +1,24 @@
+# Create a new config file when a new docker image is built
+
+name: Configure K8s
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        run: |
+          echo hello world!
+          echo test, and deploy your project.
